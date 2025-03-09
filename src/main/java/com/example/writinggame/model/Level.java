@@ -10,12 +10,12 @@ public class Level {
      * The ID or number of a level
      * @serialField
      */
-    public int levelId;
+    private int levelId;
     /**
      * The difficulty of a level
      * @serialField
      */
-    public String difficulty;
+    private String difficulty;
 
     /**
      * Creator method for a level.
