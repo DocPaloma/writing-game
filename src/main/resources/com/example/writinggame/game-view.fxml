@@ -5,43 +5,35 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <Pane prefHeight="75.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
-   </top>
-   <left>
-      <Pane prefHeight="354.0" prefWidth="202.0" BorderPane.alignment="CENTER">
-         <children>
-            <TextArea layoutX="-1.0" layoutY="29.0" prefHeight="99.0" prefWidth="201.0" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </Pane>
-   </left>
-   <bottom>
-      <Pane prefHeight="74.0" prefWidth="600.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label layoutX="552.0" layoutY="27.0" prefHeight="25.0" prefWidth="114.0" text="Label" />
-         </children>
-      </Pane>
-   </bottom>
-   <center>
-      <Pane prefHeight="354.0" prefWidth="426.0" BorderPane.alignment="CENTER">
-         <children>
-            <TextArea layoutX="77.0" layoutY="69.0" prefHeight="41.0" prefWidth="231.0" />
-            <TextField layoutX="108.0" layoutY="162.0" />
-            <Button layoutX="144.0" layoutY="238.0" mnemonicParsing="false" text="Button" />
-         </children>
-      </Pane>
-   </center>
-   <right>
-      <Pane prefHeight="354.0" prefWidth="166.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="132.0" fitWidth="158.0" layoutX="5.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </Pane>
-   </right>
-</BorderPane>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="checkPhraseButton" layoutX="356.0" layoutY="327.0" mnemonicParsing="false" onAction="#onActionCheckPhraseButton" text="Button" />
+      <ImageView fx:id="gameDogImageView" fitHeight="220.0" fitWidth="227.0" layoutX="14.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="sunImageView" fitHeight="150.0" fitWidth="138.0" layoutX="606.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="timeGameLabel" layoutX="26.0" layoutY="14.0" prefHeight="47.0" prefWidth="132.0" text="Label">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <Label fx:id="levelGameLabel" layoutX="606.0" layoutY="403.0" prefHeight="50.0" prefWidth="132.0" text="Label">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="dogSaysTextArea" layoutX="27.0" layoutY="64.0" prefHeight="150.0" prefWidth="211.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="phraseToWriteTextArea" layoutX="264.0" layoutY="167.0" prefHeight="36.0" prefWidth="255.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextArea>
+      <TextField fx:id="writingWordTextField" layoutX="301.0" layoutY="244.0" />
+   </children>
+</AnchorPane>
