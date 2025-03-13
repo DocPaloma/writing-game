@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.writinggame.controller.GameController">
    <children>
       <Button fx:id="checkPhraseButton" layoutX="356.0" layoutY="327.0" mnemonicParsing="false" onAction="#onActionCheckPhraseButton" text="Button" />
       <ImageView fx:id="gameDogImageView" fitHeight="220.0" fitWidth="227.0" layoutX="14.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true" />

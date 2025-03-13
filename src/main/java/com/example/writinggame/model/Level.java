@@ -16,6 +16,11 @@ public class Level {
      * @serialField
      */
     private String difficulty;
+    /**
+     * The word to be written
+     * @serialField
+     */
+    private String word;
 
     /**
      * Creator method for a level.
@@ -57,4 +62,45 @@ public class Level {
             difficulty = "hard";
         }
     }
+
+    /**
+     * Method that sets the Word to write
+     * @param difficulty: level difficulty
+     */
+    public void chooseWord (String difficulty) {
+
+        if (difficulty == "easy"){
+            String easyWords[]={};
+            int randomNumber = (int) (Math.random() * easyWords.length);
+            word = easyWords[randomNumber];
+
+        }
+
+        else if (difficulty == "hard"){
+            String hardWords[]={};
+            int randomNumber = (int) (Math.random() * hardWords.length);
+            word = hardWords[randomNumber];
+
+        }
+
+        else {
+            String mediumWords[] = {};
+            int randomNumber = (int) (Math.random() * mediumWords.length);
+            word = mediumWords[randomNumber];
+
+        }
+    }
+
+    public String getWord() {
+        return word;
+    }
+
+    /**
+     * Method that increases the level
+     * @param levelUP: variable that defines if the level needs to be increased
+     */
+    public void increaseLevelId(boolean levelUP) {
+        this.levelId = levelId + 1;
+    }
+
 }

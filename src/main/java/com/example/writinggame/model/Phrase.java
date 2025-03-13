@@ -3,45 +3,60 @@ package com.example.writinggame.model;
 
 public class Phrase {
     private String phrase;
-    private String easyPhrases[]={};
-    private String hardPhrases[]={};
-    private String mediumPhrases[]={};
 
-    public Phrase(String difficulty) {
 
-        if (difficulty == "easy"){
-            phrase = chooseEasyPhrases();
-        }
+    String mediumPhrases[]={};
 
-        else if (difficulty == "hard"){
-            phrase = chooseHardPhrases();
-        }
-
-        else if (difficulty == "medium"){
-            phrase = chooseMediumPhrases();
-        }
+    public Phrase() {
+        phrase = "Algo";
     }
 
     public String getPhrase() {
         return phrase;
     }
 
-    public String chooseEasyPhrases() {
-        int randomNumber = (int) (Math.random() * easyPhrases.length);
-        phrase = easyPhrases[randomNumber];
-        return phrase;
+    public void chooseEasyPhrases(boolean isWordCorrect) {
+        if (isWordCorrect) {
+            String easyPhrases[]={};
+            int randomNumber = (int) (Math.random() * easyPhrases.length);
+            phrase = easyPhrases[randomNumber];
+
+        }
+        else {
+            String easyPhrases[]={};
+            int randomNumber = (int) (Math.random() * easyPhrases.length);
+            phrase = easyPhrases[randomNumber];
+
+        }
     }
 
-    public String chooseHardPhrases() {
-        int randomNumber = (int) (Math.random() * hardPhrases.length);
-        phrase = hardPhrases[randomNumber];
-        return phrase;
+    public void chooseHardPhrases(boolean isWordCorrect) {
+        if (isWordCorrect) {
+            String hardPhrases[]={};
+            int randomNumber = (int) (Math.random() * hardPhrases.length);
+            phrase = hardPhrases[randomNumber];
+
+        }
+        else {
+            String hardPhrases[] = {};
+            int randomNumber = (int) (Math.random() * hardPhrases.length);
+            phrase = hardPhrases[randomNumber];
+        }
     }
 
-    public String chooseMediumPhrases() {
-        int randomNumber = (int) (Math.random() * mediumPhrases.length);
-        phrase = mediumPhrases[randomNumber];
-        return phrase;
+    public void chooseMediumPhrases(boolean isWordCorrect) {
+        if (isWordCorrect) {
+            String mediumPhrases[]={};
+            int randomNumber = (int) (Math.random() * mediumPhrases.length);
+            phrase = mediumPhrases[randomNumber];
+
+        }
+        else {
+            String mediumPhrases[]={};
+            int randomNumber = (int) (Math.random() * mediumPhrases.length);
+            phrase = mediumPhrases[randomNumber];
+
+        }
     }
 
 }
