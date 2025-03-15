@@ -136,6 +136,10 @@ public class Game {
 
     }
 
+    public int getMaxStreak() {
+        return maxStreak;
+    }
+
 
     public void reduceChances() {
         chances = chances - 1;

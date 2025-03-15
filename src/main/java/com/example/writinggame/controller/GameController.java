@@ -89,21 +89,38 @@ public class GameController {
         timeline.play();
     }
 
+    /**
+     * method to finish the game due to time
+     */
     private void endGame(){
-        dogSaysTextArea.setText("¡Te has quedao sin tiempo!");
-        wordToWriteTextArea.setDisable(true);
+        int levelsCompleted =game.getLevelId() - 1;
+        dogSaysTextArea.setText("¡Te has quedao sin tiempo!\n" + "Has completado " + levelsCompleted + "niveles!\n");
+        writingWordTextField.setDisable(true);
+        checkPhraseButton.setDisable(true);
+
     }
 
+    /**
+     *  method to finish the game due to lack of chances
+     */
     private void endGame02(){
-        dogSaysTextArea.setText("te has quedao sin oportunidades!");
-        wordToWriteTextArea.setDisable(true);
+        int levelsCompleted =game.getLevelId() - 1;
+        dogSaysTextArea.setText("te has quedao sin oportunidades!\n"  + "Has completado " + levelsCompleted + "niveles!\n");
+        writingWordTextField.setDisable(true);
+        checkPhraseButton.setDisable(true);
     }
 
+    /**
+     * method to load dog image
+     */
     private void loadDog(){
         Image neutralCheems = new Image(getClass().getResourceAsStream("/com/example/writinggame/images/cheems.jpg"));
         gameDogImageView.setImage(neutralCheems);
     }
 
+    /**
+     * method to change the dog image when an error is made
+     */
     private void errorDog(){
         Image neutralCheems = new Image(getClass().getResourceAsStream("/com/example/writinggame/images/cheems.jpg"));
         Image error = new Image(getClass().getResourceAsStream("/com/example/writinggame/gifs/bonk-doge.gif"));
@@ -116,22 +133,32 @@ public class GameController {
         timeline2.play();
     }
 
+    /**
+     * method to update the word label
+     */
     private void updateWord(){
         wordToWriteTextArea.setText(game.getWord());
     }
 
+    /**
+     * method to update the game level
+     */
     private void updateLevel(){
         levelGameLabel.setText("Level: " + game.getLevelId());
     }
 
+    /**
+     * method that implements the logic to compare the words
+     * @param wordWritten: word input by the user
+     */
     private void checkWord(String wordWritten){
-        if (wordWritten == game.getWord()) {
-            if(game.getDifficulty()== "easy"){
+        if (wordWritten.equals(game.getWord())) {
+            if(game.getDifficulty().equals("easy")){
                 Boolean a = true;
                 dog.chooseEasyPhrases(a);
                 dogSaysTextArea.setText(dog.getPhrase());
             }
-            else if (game.getDifficulty() == "medium"){
+            else if (game.getDifficulty().equals("medium")){
                 Boolean a = true;
                 dog.chooseMediumPhrases(a);
                 dogSaysTextArea.setText(dog.getPhrase());
@@ -141,18 +168,20 @@ public class GameController {
                 dog.chooseHardPhrases(a);
                 dogSaysTextArea.setText(dog.getPhrase());
             }
+            writingWordTextField.clear();
             game.increaseLevelId();
             game.chooseWord();
             updateWord();
             updateLevel();
+            reduceTime(game.getLevelId());
         }
         else{
-            if(game.getDifficulty() == "easy"){
+            if(game.getDifficulty().equals("easy")){
                 Boolean a = false;
                 dog.chooseEasyPhrases(a);
                 dogSaysTextArea.setText(dog.getPhrase());
             }
-            else if (game.getDifficulty() == "medium"){
+            else if (game.getDifficulty().equals("medium")){
                 Boolean a = false;
                 dog.chooseMediumPhrases(a);
                 dogSaysTextArea.setText(dog.getPhrase());
@@ -162,39 +191,58 @@ public class GameController {
                 dog.chooseHardPhrases(a);
                 dogSaysTextArea.setText(dog.getPhrase());
             }
+            writingWordTextField.clear();
             errorDog();
+            eclipse();
             if (game.getChances()==0){
                 endGame02();
             }
             else {
                 game.reduceChances();
-                eclipse();
             }
 
         }
     }
 
+    /**
+     * method to load initial sun
+     */
     private void loadSun(){
         Image sun = new Image(getClass().getResourceAsStream("/com/example/writinggame/images/sol.jpg"));
         sunImageView.setImage(sun);
     }
 
+    /**
+     * method that implements the logic to change the sun, showing how many tries are left
+     */
     private void eclipse(){
+        int chances  = game.getChances();
         Image eclipse1 = new Image(getClass().getResourceAsStream("/com/example/writinggame/images/Eclipse1.jpg"));
         Image eclipse2 = new Image(getClass().getResourceAsStream("/com/example/writinggame/images/Eclipse-25.jpg"));
         Image eclipse3 = new Image(getClass().getResourceAsStream("/com/example/writinggame/images/eclipse-50.jpg"));
         Image eclipse4 = new Image(getClass().getResourceAsStream("/com/example/writinggame/images/eclipse-75.jpg"));
-        if (game.getChances()==0){
+        if (chances == 0){
             sunImageView.setImage(eclipse1);
         }
-        else if (game.getChances()==1){
+        else if (chances==1){
             sunImageView.setImage(eclipse4);
         }
-        else if (game.getChances()==2){
+        else if (chances==2){
             sunImageView.setImage(eclipse3);
         }
         else {
             sunImageView.setImage(eclipse2);
+        }
+    }
+
+    /**
+     * method that reduces time by 2 secs every 5 levels
+     * @param levelId: level number
+     */
+    private void reduceTime(int levelId){
+        int gameLevel = game.getLevelId();
+        if (gameLevel%5==0){
+            timeGame = timeGame-2;
         }
     }
 

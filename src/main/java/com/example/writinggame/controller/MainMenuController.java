@@ -35,7 +35,7 @@ public class MainMenuController {
     void onActionInstructionsButtom(ActionEvent event) {
         Stage instructionsStage = new Stage();
         instructionsStage.setTitle("Instructions");
-        Label instructionsLabel = new Label("Instrucciones del juego: \n\n" + "");
+        Label instructionsLabel = new Label("Instrucciones del juego: \n\n" + "El jugador tiene 20 segundos para escribir\n" + "la mayor cantidad de palabras posibles\n" + "Cada 5 niveles se reducen 2 seg.\n" + "Solo puedes cometer 4 errores antes de perder.");
         Button closeButton = new Button("Cerrar");
         closeButton.setOnAction(e -> instructionsStage.close());
         VBox layout = new VBox(10);

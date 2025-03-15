@@ -13,7 +13,7 @@
       <Button fx:id="checkPhraseButton" layoutX="356.0" layoutY="327.0" mnemonicParsing="false" onAction="#onActionCheckPhraseButton" text="Check" />
       <ImageView fx:id="gameDogImageView" fitHeight="220.0" fitWidth="227.0" layoutX="14.0" layoutY="217.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="sunImageView" fitHeight="163.0" fitWidth="180.0" layoutX="571.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="timeGameLabel" layoutX="308.0" layoutY="89.0" prefHeight="47.0" prefWidth="132.0" text="Label">
+      <Label fx:id="timeGameLabel" layoutX="278.0" layoutY="89.0" prefHeight="50.0" prefWidth="195.0" text="Label">
          <font>
             <Font size="33.0" />
          </font>
