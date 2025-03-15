@@ -36,6 +36,7 @@ public class Game {
         levelId = 1;
         setDifficulty();
         chooseWord();
+        chances = 4;
     }
 
     /**

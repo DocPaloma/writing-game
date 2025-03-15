@@ -12,7 +12,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class GameController {
@@ -50,6 +49,7 @@ public class GameController {
     void onActionCheckPhraseButton(ActionEvent event) {
         String wordWritten = writingWordTextField.getText();
         checkWord(wordWritten);
+        System.out.printf(wordWritten);
     }
 
 
@@ -57,6 +57,7 @@ public class GameController {
     void onActionWritingWordTextField(ActionEvent event) {
         String wordWritten = writingWordTextField.getText();
         checkWord(wordWritten);
+        System.out.printf(wordWritten);
     }
 
 
@@ -69,7 +70,8 @@ public class GameController {
         wordToWriteTextArea.setText(game.getWord());
         levelGameLabel.setText("Level: " + game.getLevelId());
         loadDog();
-
+        startTimer();
+        loadSun();
     }
 
     private void startTimer(){
@@ -92,6 +94,11 @@ public class GameController {
         wordToWriteTextArea.setDisable(true);
     }
 
+    private void endGame02(){
+        dogSaysTextArea.setText("te has quedao sin oportunidades!");
+        wordToWriteTextArea.setDisable(true);
+    }
+
     private void loadDog(){
         Image neutralCheems = new Image(getClass().getResourceAsStream("/com/example/writinggame/images/cheems.jpg"));
         gameDogImageView.setImage(neutralCheems);
@@ -102,11 +109,11 @@ public class GameController {
         Image error = new Image(getClass().getResourceAsStream("/com/example/writinggame/gifs/bonk-doge.gif"));
         int seconds = 1;
         gameDogImageView.setImage(error);
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(seconds), event -> {
+        Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(seconds), event -> {
             gameDogImageView.setImage(neutralCheems);
         }));
-        timeline.setCycleCount(1);
-        timeline.play();
+        timeline2.setCycleCount(1);
+        timeline2.play();
     }
 
     private void updateWord(){
@@ -157,15 +164,39 @@ public class GameController {
             }
             errorDog();
             if (game.getChances()==0){
-                endGame();
+                endGame02();
             }
             else {
                 game.reduceChances();
+                eclipse();
             }
 
         }
     }
 
+    private void loadSun(){
+        Image sun = new Image(getClass().getResourceAsStream("/com/example/writinggame/images/sol.jpg"));
+        sunImageView.setImage(sun);
+    }
+
+    private void eclipse(){
+        Image eclipse1 = new Image(getClass().getResourceAsStream("/com/example/writinggame/images/Eclipse1.jpg"));
+        Image eclipse2 = new Image(getClass().getResourceAsStream("/com/example/writinggame/images/Eclipse-25.jpg"));
+        Image eclipse3 = new Image(getClass().getResourceAsStream("/com/example/writinggame/images/eclipse-50.jpg"));
+        Image eclipse4 = new Image(getClass().getResourceAsStream("/com/example/writinggame/images/eclipse-75.jpg"));
+        if (game.getChances()==0){
+            sunImageView.setImage(eclipse1);
+        }
+        else if (game.getChances()==1){
+            sunImageView.setImage(eclipse4);
+        }
+        else if (game.getChances()==2){
+            sunImageView.setImage(eclipse3);
+        }
+        else {
+            sunImageView.setImage(eclipse2);
+        }
+    }
 
 
 }
