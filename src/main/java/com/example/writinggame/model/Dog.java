@@ -31,13 +31,13 @@ public class Dog {
      */
     public void chooseEasyPhrases(boolean isWordCorrect) {
         if (isWordCorrect) {
-            String easyPhrases[]={};
+            String easyPhrases[]={"Facilito bro", "Subanle la dif a los bots"};
             int randomNumber = (int) (Math.random() * easyPhrases.length);
             phrase = easyPhrases[randomNumber];
 
         }
         else {
-            String easyPhrases[]={};
+            String easyPhrases[]={"Oh no, te has equivocado!", "No te preocupes, a veces sucede"};
             int randomNumber = (int) (Math.random() * easyPhrases.length);
             phrase = easyPhrases[randomNumber];
 
@@ -50,13 +50,13 @@ public class Dog {
      */
     public void chooseHardPhrases(boolean isWordCorrect) {
         if (isWordCorrect) {
-            String hardPhrases[]={};
+            String hardPhrases[]={"Uff por poco enciendo el monitor", "GG ez"};
             int randomNumber = (int) (Math.random() * hardPhrases.length);
             phrase = hardPhrases[randomNumber];
 
         }
         else {
-            String hardPhrases[] = {};
+            String hardPhrases[] = {"Perate, tenia el teclado desconectado", "F de fallo"};
             int randomNumber = (int) (Math.random() * hardPhrases.length);
             phrase = hardPhrases[randomNumber];
         }
@@ -68,13 +68,13 @@ public class Dog {
      */
     public void chooseMediumPhrases(boolean isWordCorrect) {
         if (isWordCorrect) {
-            String mediumPhrases[]={};
+            String mediumPhrases[]={"Lo has escrito correctamente", "Vamos, sigue así"};
             int randomNumber = (int) (Math.random() * mediumPhrases.length);
             phrase = mediumPhrases[randomNumber];
 
         }
         else {
-            String mediumPhrases[]={};
+            String mediumPhrases[]={"Ah loco, casi lo logras", "Buen intento"};
             int randomNumber = (int) (Math.random() * mediumPhrases.length);
             phrase = mediumPhrases[randomNumber];
 

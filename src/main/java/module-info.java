@@ -5,6 +5,5 @@ module com.example.writinggame {
 
 
     opens com.example.writinggame.controller to javafx.graphics, javafx.fxml;
-    opens com.example.writinggame.view to javafx.graphics, javafx.fxml;
     opens com.example.writinggame to javafx.graphics, javafx.fxml;
 }

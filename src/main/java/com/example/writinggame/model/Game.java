@@ -20,7 +20,7 @@ public class Game {
      * The word to be written
      * @serialField
      */
-    private String word;
+    public String word;
 
     private int levelsStreak;
 
@@ -75,21 +75,36 @@ public class Game {
     public void chooseWord () {
 
         if (difficulty == "easy"){
-            String easyWords[]={};
+            String easyWords[]={"casa", "sol", "luz", "agua", "pan",
+                    "flor", "luna", "gato", "perro", "rojo",
+                    "verde", "azul", "nube", "vino", "hola",
+                    "mano", "dedo", "ratón", "llave", "frío"};
             int randomNumber = (int) (Math.random() * easyWords.length);
             word = easyWords[randomNumber];
 
         }
 
         else if (difficulty == "hard"){
-            String hardWords[]={};
+            String hardWords[]={"hipopótamo", "extraordinario", "melancolía", "biblioteca", "murciélago",
+                    "refrigerador", "desenlace", "alucinante", "intransigente", "disyuntiva",
+                    "otorrinolaringólogo", "circunstancial", "desconocido", "transatlántico", "conmemorativo",
+                    "necesidad", "anfitrión", "subterráneo", "capicúa", "equinoccio",
+                    "paralelogramo", "transeúnte", "orquídea", "espectro", "catastrófico",
+                    "metamorfosis", "dodecaedro", "extraoficial", "inconmensurable", "quimérico",
+                    "efervescente", "triciclo", "constitucional", "fragmentación", "palindrómico",
+                    "fascinante", "interrogante", "imprescindible", "incongruente", "contundente"};
             int randomNumber = (int) (Math.random() * hardWords.length);
             word = hardWords[randomNumber];
 
         }
 
         else {
-            String mediumWords[] = {};
+            String mediumWords[] = {"ventana", "escuela", "montaña", "brazalete", "paraguas",
+                    "jirafa", "elefante", "cuchillo", "pizarra", "playa",
+                    "silla", "zapatos", "comida", "relámpago", "estación",
+                    "tijeras", "carnaval", "astronauta", "barco", "cartel",
+                    "frontera", "música", "bicicleta", "mariposa", "espejo",
+                    "librería", "pintura", "semáforo", "jirón", "desfile"};
             int randomNumber = (int) (Math.random() * mediumWords.length);
             word = mediumWords[randomNumber];
 
@@ -102,9 +117,8 @@ public class Game {
 
     /**
      * Method that increases the level
-     * @param levelUP: variable that defines if the level needs to be increased
      */
-    public void increaseLevelId(boolean levelUP) {
+    public void increaseLevelId() {
         this.levelId = levelId + 1;
     }
 
@@ -122,6 +136,13 @@ public class Game {
     }
 
 
+    public void reduceChances() {
+        chances = chances - 1;
+    }
+
+    public int getChances() {
+        return chances;
+    }
 
 
 }

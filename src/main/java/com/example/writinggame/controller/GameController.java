@@ -1,5 +1,6 @@
 package com.example.writinggame.controller;
 
+import com.example.writinggame.model.Dog;
 import com.example.writinggame.model.Game;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -41,17 +42,28 @@ public class GameController {
     private TextField writingWordTextField;
 
     private Game game;
-    private int timeGame = 20;
+    private Dog dog;
+    private int timeGame;
     private Timeline timeline;
-    private Stage wordWrittrn;
 
     @FXML
     void onActionCheckPhraseButton(ActionEvent event) {
-
+        String wordWritten = writingWordTextField.getText();
+        checkWord(wordWritten);
     }
+
+
+    @FXML
+    void onActionWritingWordTextField(ActionEvent event) {
+        String wordWritten = writingWordTextField.getText();
+        checkWord(wordWritten);
+    }
+
 
     public void initialize(){
         game = new Game();
+        dog = new Dog();
+        timeGame = 20;
         dogSaysTextArea.setDisable(true);
         wordToWriteTextArea.setDisable(true);
         wordToWriteTextArea.setText(game.getWord());
@@ -96,5 +108,64 @@ public class GameController {
         timeline.setCycleCount(1);
         timeline.play();
     }
+
+    private void updateWord(){
+        wordToWriteTextArea.setText(game.getWord());
+    }
+
+    private void updateLevel(){
+        levelGameLabel.setText("Level: " + game.getLevelId());
+    }
+
+    private void checkWord(String wordWritten){
+        if (wordWritten == game.getWord()) {
+            if(game.getDifficulty()== "easy"){
+                Boolean a = true;
+                dog.chooseEasyPhrases(a);
+                dogSaysTextArea.setText(dog.getPhrase());
+            }
+            else if (game.getDifficulty() == "medium"){
+                Boolean a = true;
+                dog.chooseMediumPhrases(a);
+                dogSaysTextArea.setText(dog.getPhrase());
+            }
+            else{
+                Boolean a = true;
+                dog.chooseHardPhrases(a);
+                dogSaysTextArea.setText(dog.getPhrase());
+            }
+            game.increaseLevelId();
+            game.chooseWord();
+            updateWord();
+            updateLevel();
+        }
+        else{
+            if(game.getDifficulty() == "easy"){
+                Boolean a = false;
+                dog.chooseEasyPhrases(a);
+                dogSaysTextArea.setText(dog.getPhrase());
+            }
+            else if (game.getDifficulty() == "medium"){
+                Boolean a = false;
+                dog.chooseMediumPhrases(a);
+                dogSaysTextArea.setText(dog.getPhrase());
+            }
+            else{
+                Boolean a = false;
+                dog.chooseHardPhrases(a);
+                dogSaysTextArea.setText(dog.getPhrase());
+            }
+            errorDog();
+            if (game.getChances()==0){
+                endGame();
+            }
+            else {
+                game.reduceChances();
+            }
+
+        }
+    }
+
+
 
 }
