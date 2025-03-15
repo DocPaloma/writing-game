@@ -1,20 +1,34 @@
 package com.example.writinggame.model;
 ;
 
-public class Phrase {
+/**
+ * Class that works the logic for the dog, which is in charge to indicate if the word as been written correctly or not
+ */
+public class Dog {
+    /**
+     * phrase that the dog would say
+     * @serialField
+     */
     private String phrase;
 
 
-    String mediumPhrases[]={};
 
-    public Phrase() {
-        phrase = "Algo";
+    public Dog() {
+        phrase = "";
     }
 
+    /**
+     * method to get the phrase
+     * @return the dog phrase
+     */
     public String getPhrase() {
         return phrase;
     }
 
+    /**
+     * method that chooses a phrase for easy difficulty
+     * @param isWordCorrect: if the word is correct
+     */
     public void chooseEasyPhrases(boolean isWordCorrect) {
         if (isWordCorrect) {
             String easyPhrases[]={};
@@ -30,6 +44,10 @@ public class Phrase {
         }
     }
 
+    /**
+     * method that chooses a phrase for hard difficulty
+     * @param isWordCorrect: if the word is correct
+     */
     public void chooseHardPhrases(boolean isWordCorrect) {
         if (isWordCorrect) {
             String hardPhrases[]={};
@@ -44,6 +62,10 @@ public class Phrase {
         }
     }
 
+    /**
+     * method that chooses a phrase for medium difficulty
+     * @param isWordCorrect: if the word is correct
+     */
     public void chooseMediumPhrases(boolean isWordCorrect) {
         if (isWordCorrect) {
             String mediumPhrases[]={};

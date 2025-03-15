@@ -24,10 +24,10 @@ public class Level {
 
     /**
      * Creator method for a level.
-     * @param levelId: ID of a level
+     * @param
      */
-    public Level(int levelId) {
-        this.levelId = levelId;
+    public Level() {
+        levelId = 1;
         setDifficulty(levelId);
     }
 
@@ -101,6 +101,20 @@ public class Level {
      */
     public void increaseLevelId(boolean levelUP) {
         this.levelId = levelId + 1;
+    }
+
+    /**
+     * Method that checks if the word written is correct
+     * @param wordWritten: word written by the player
+     * @return true or false
+     */
+    public Boolean checkWord(String wordWritten) {
+        if (wordWritten == word){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 }
